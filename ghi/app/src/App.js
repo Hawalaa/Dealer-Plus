@@ -3,6 +3,8 @@ import MainPage from './MainPage';
 import Nav from './Nav';
 import TechnicianFrom from './TechnicianForm';
 import TechniciansList from './TechniciansList';
+import AppointmentForm from './AppointmentForm';
+import AppointmentsList from './AppointmentForm';
 
 function App() {
   return (
@@ -16,6 +18,12 @@ function App() {
           </Route>
           <Route path='technicians'>
             <Route path="" element={<TechniciansList />} />
+          </Route>
+          <Route path='appointments'>
+            <Route path="" element={<AppointmentsList />} />
+          </Route>
+          <Route path='appointments'>
+            <Route path="create" element={<AppointmentForm />} />
           </Route>
         </Routes>
       </div>
