@@ -70,7 +70,6 @@ function AppointmentForm() {
         const response = await fetch(appointmentUrl, fetchConfig);
         if (response.ok) {
             const newAppointment = await response.json();
-            console.log(newAppointment);
             setVin('');
             setCustomer('');
             setDate('');
@@ -118,7 +117,7 @@ function AppointmentForm() {
                                 <input onChange={handleTimeChange} placeholder="" required type="time" id="time" name="time" className="form-control" />
                             </div>
                             <div className="form-group mb-3">
-                                <label htmlFor="bin" className="form-label">Technician</label>
+                                <label htmlFor="technician" className="form-label">Technician</label>
                                 <select onChange={handleTechnicianChange} required id="technician" name="technician" className="form-select">
                                     <option value="">Choose a technician...</option>
                                     {technicians.map(technician => {

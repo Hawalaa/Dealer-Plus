@@ -79,7 +79,7 @@ def api_list_appointments(request):
             technician = Technician.objects.get(pk=technician_id)
             content["technician"] = technician
             car_vin = content["vin"]
-            if AutomobileVO.objects.filter(vin=car_vin) != None:
+            if AutomobileVO.objects.filter(vin=car_vin) is not None:
                 content["vip"] = True
         except:
             return JsonResponse(
@@ -111,5 +111,21 @@ def api_update_appointment(request, pk):
         except:
             return JsonResponse(
                 {"message": "Unable to update appointment"},
+                status=400,
+            )
+
+
+@require_http_methods(["GET"])
+def api_search_appointment(request, vin):
+    if request.method == "GET":
+        try:
+            appointments = Appointment.objects.filter(vin=vin)
+            return JsonResponse(
+                {"appointments": appointments},
+                encoder=AppointmentEncoder,
+            )
+        except Appointment.DoesNotExist:
+            return JsonResponse(
+                {"message": "Appointment does not exist"},
                 status=400,
             )
