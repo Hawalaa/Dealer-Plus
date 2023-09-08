@@ -1,24 +1,32 @@
 # CarCar
 
-Team:
+**Team:**
 
 * Junhao Liang - service microservice
 * Catherine Xiang - sales microservice
 
+## Table of Contents
+
+- [Design](#design)
+- [Architecture Diagram](#diagram)
+- [Inventory Microservice](#inventory-microservice)
+- [Service Microservice](#inventory-microservice)
+- [Sales Microservice](#inventory-microservice)
+
 ## Design
 
-## Service microservice
+## Service Microservice
 
 For the service microservice, three models were created: AutomobileVO, Technician, and Appointment. The AutomoileVO model serve as a poller to communicate with the inventory microservice,
 keeping track of the automobile data infomation. The Technician model is used to create technician staff and provide data for the Appiontment model. And the Appointment model is used to
 create service appointment and keep track of the appointment data infomation.
 
-## Sales microservice
+## Sales Microservice
 
 Explain your models and integration with the inventory
 microservice, here.
 
-## Diagram
+## Architecture Diagram of the Application
 
 ![Carcar project diagram](/assets/images/Carcar%20diagram.png)
 
@@ -27,19 +35,25 @@ microservice, here.
 1. Fork this repository
 2. In your terminal, clone the repository onto your computer (**Replace the repository url with the url your copied from git!**).
 
-    `git clone <repository url>`
+    ```
+    git clone <repository url>
+    ```
 
 3. Change the working directory to the project's directory in your terminal.
 
-    `cd project-beta`
+    ```
+    cd project-beta
+    ```
 
 4. Open the Docker Desktop application on your computer and run the following commands in your terminal:
 
-    `docker volume create beta-data`
-    `docker-compose build`
-    `docker-compose up`
+    ```
+    docker volume create beta-data
+    docker-compose build
+    docker-compose up
+    ```
 
-   **Note**: When you run `docker-compose up` and if you're on macOS, you will see a warning about an environment variable named `OS` being missing. **You can safely ignore this**.
+   > :memo: **Note:**: When you run `docker-compose up` and if you're on macOS, you will see a warning about an environment variable named `OS` being missing. **You can safely ignore this**.
 
 5. After all containers are up and running, you can open your browser and access the project at: <http://localhost:3000/>
 
@@ -92,7 +106,7 @@ microservice, here.
 
 </details>
 
-### Vehicle models
+### Vehicle Models
 
 | Action                          | Request | URL                                      |
 | :---                            | :----:  | :---                                     |
