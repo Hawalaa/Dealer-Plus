@@ -78,7 +78,7 @@ microservice, here.
 </details>
 
 <details>
-    <summary>Sample output of getting a list of manufacturer</summaryb>
+    <summary>Sample output of getting a list of manufacturer</summary>
 
     {
       "manufacturers": [
@@ -103,7 +103,7 @@ microservice, here.
 | Delete a specific vehicle model | DELETE  | http://localhost:8100/api/models/int:id/ |
 
 <details>
-    <summary>Sample input of creating a vehicle model</summaryb>
+    <summary>Sample input of creating a vehicle model</summary>
 
     {
       "name": "Sebring",
@@ -124,7 +124,7 @@ microservice, here.
 </details>
 
 <details>
-    <summary>Sample output of creating, updating, or getting the detail of a vehicle model</summaryb>
+    <summary>Sample output of creating, updating, or getting the detail of a vehicle model</summary>
 
     {
       "href": "/api/models/1/",
@@ -184,7 +184,7 @@ microservice, here.
 </details>
 
 <details>
-    <summary>Sample input of updating a vehicle model</summaryb>
+    <summary>Sample input of updating a vehicle model</summary>
 
     {
       "name": "Sebring",
@@ -219,7 +219,7 @@ microservice, here.
 </details>
 
 <details>
-    <summary>Sample imput of updating an automobile</summaryb>
+    <summary>Sample imput of updating an automobile</summary>
 
     {
       "color": "red",
@@ -230,7 +230,9 @@ microservice, here.
 </details>
 
 <details>
+    <b>
     <summary>Sample output of getting the a list of automobiles</summary>
+    <b>
 
     {
       "autos": [
