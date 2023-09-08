@@ -27,17 +27,17 @@ microservice, here.
 1. Fork this repository
 2. In your terminal, clone the repository onto your computer (**Replace the repository url with the url your copied from git!**).
 
-    git clone <repository url>
+    `git clone <repository url>`
 
 3. Change the working directory to the project's directory in your terminal.
 
-    cd project-beta
+    `cd project-beta`
 
 4. Open the Docker Desktop application on your computer and run the following commands in your terminal:
 
-    docker volume create beta-data
-    docker-compose build
-    docker-compose up
+    `docker volume create beta-data`
+    `docker-compose build`
+    `docker-compose up`
 
    **Note**: When you run `docker-compose up` and if you're on macOS, you will see a warning about an environment variable named `OS` being missing. **You can safely ignore this**.
 
@@ -58,7 +58,7 @@ microservice, here.
 | Delete a specific manufacturer | DELETE  | http://localhost:8100/api/manufacturers/int:id/ |
 
 <details>
-    <b>Sample input of creating and updating a manufacturer</b>
+    <summary>Sample input of creating and updating a manufacturer</summary>
 
     {
       "name": "Chrysler"
@@ -67,7 +67,7 @@ microservice, here.
 </details>
 
 <details>
-    <b>Sample output of creating, getting, and updating a single manufacturer</b>
+    <summary>Sample output of creating, getting, and updating a single manufacturer</summary>
 
     {
       "href": "/api/manufacturers/1/",
@@ -78,7 +78,7 @@ microservice, here.
 </details>
 
 <details>
-    <b>Sample output of getting a list of manufacturer</b>
+    <summary>Sample output of getting a list of manufacturer</summaryb>
 
     {
       "manufacturers": [
@@ -103,7 +103,7 @@ microservice, here.
 | Delete a specific vehicle model | DELETE  | http://localhost:8100/api/models/int:id/ |
 
 <details>
-    <b>Sample input of creating a vehicle model</b>
+    <summary>Sample input of creating a vehicle model</summaryb>
 
     {
       "name": "Sebring",
@@ -114,7 +114,7 @@ microservice, here.
 </details>
 
 <details>
-    <b>Sample input of updating a vehicle model</b>
+    <summary>Sample input of updating a vehicle model</summary>
 
     {
       "name": "Sebring",
@@ -124,7 +124,7 @@ microservice, here.
 </details>
 
 <details>
-    <b>Sample output of creating, updating, or getting the detail of a vehicle model</b>
+    <summary>Sample output of creating, updating, or getting the detail of a vehicle model</summaryb>
 
     {
       "href": "/api/models/1/",
@@ -141,7 +141,7 @@ microservice, here.
 </details>
 
 <details>
-    <b>Sample output of getting the a list of vehicle models</b>
+    <summary>Sample output of getting the a list of vehicle models</summary>
 
     {
       "models": [
@@ -172,7 +172,7 @@ microservice, here.
 | Delete a specific automobile | DELETE  | http://localhost:8100/api/automobiles/str:vin/ |
 
 <details>
-    <b>Sample input of creating an automobile</b>
+    <summary>Sample input of creating an automobile</summary>
 
     {
       "color": "red",
@@ -184,7 +184,7 @@ microservice, here.
 </details>
 
 <details>
-    <b>Sample input of updating a vehicle model</b>
+    <summary>Sample input of updating a vehicle model</summaryb>
 
     {
       "name": "Sebring",
@@ -194,7 +194,7 @@ microservice, here.
 </details>
 
 <details>
-    <b>Sample output of creating, updating, or getting the detail of an automobile</b>
+    <summary>Sample output of creating, updating, or getting the detail of an automobile</summary>
 
     {
       "href": "/api/automobiles/1C3CC5FB2AN120174/",
@@ -219,7 +219,7 @@ microservice, here.
 </details>
 
 <details>
-    <b>Sample imput of updating an automobile</b>
+    <summary>Sample imput of updating an automobile</summaryb>
 
     {
       "color": "red",
@@ -230,7 +230,7 @@ microservice, here.
 </details>
 
 <details>
-    <b>Sample output of getting the a list of automobiles</b>
+    <summary>Sample output of getting the a list of automobiles</summary>
 
     {
       "autos": [
