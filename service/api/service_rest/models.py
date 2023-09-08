@@ -13,7 +13,7 @@ class Technician(models.Model):
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=100)
     sold = models.BooleanField()
-    import_herf = models.CharField(max_length=200, unique=True)
+    import_href = models.CharField(max_length=200, unique=True)
 
 
 class Appointment(models.Model):
@@ -27,4 +27,4 @@ class Appointment(models.Model):
         related_name="appointments",
         on_delete=models.CASCADE,
     )
-    vip = models.BooleanField(default=False, null=True)
+    vip = models.BooleanField(default=False)

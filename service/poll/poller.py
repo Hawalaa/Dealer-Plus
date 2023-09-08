@@ -14,20 +14,17 @@ from service_rest.models import AutomobileVO
 # from service_rest.models import Something
 
 
-def get_automobiles():
-    response = requests.get("http://inventory-api:8100/api/automobiles")
+def get_automobile():
+    response = requests.get("http://project-beta-inventory-api-1:8000/api/automobiles/")
     content = json.loads(response.content)
 
-    for automobile in content["autos"]:
+    for auto in content["autos"]:
         AutomobileVO.objects.update_or_create(
-            import_href = automobile["href"],
+            import_href = auto["href"],
             defaults={
-                "color": automobile["color"],
-                "year": automobile["year"],
-                "vin": automobile["vin"],
-                "sold": automobile["sold"],
-                "model": automobile["model"],
-            }
+                "vin": auto["vin"],
+                "sold": auto["sold"],
+            },
         )
 
 
@@ -37,7 +34,7 @@ def poll(repeat=True):
         try:
             # Write your polling logic, here
             # Do not copy entire file
-            get_automobiles()
+            get_automobile()
 
         except Exception as e:
             print(e, file=sys.stderr)

@@ -38,6 +38,7 @@ function TechniciansList() {
 
     return (
         <>
+        <font size="+10" >Technicians</font>
         <table className="table table-striped">
             <thead>
                 <tr>

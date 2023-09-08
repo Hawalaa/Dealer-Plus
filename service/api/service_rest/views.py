@@ -78,14 +78,17 @@ def api_list_appointments(request):
             technician_id = content["technician"]
             technician = Technician.objects.get(pk=technician_id)
             content["technician"] = technician
-            car_vin = content["vin"]
-            if AutomobileVO.objects.filter(vin=car_vin) != None:
-                content["vip"] = True
-        except:
+        except Technician.DoesNotExist:
             return JsonResponse(
-                {"message": "Create appoiontment unsuccessful"},
+                {"message": "Technician does not exist"},
                 status=400,
             )
+
+        if AutomobileVO.objects.filter(vin=content["vin"]).exists():
+            content["vip"] = True
+        else:
+            content["vip"] = False
+
         appointment = Appointment.objects.create(**content)
         return JsonResponse(
             appointment,
