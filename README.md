@@ -33,7 +33,7 @@ microservice, here.
 ## Installation
 
 1. Fork this repository
-2. In your terminal, clone the repository onto your computer (**Replace the repository url with the url your copied from git!**).
+2. In your terminal, clone the repository onto your computer (**Replace the repository url with the url you copied from git!**).
 
     ```
     git clone <repository url>
@@ -53,7 +53,7 @@ microservice, here.
     docker-compose up
     ```
 
-   > :memo: **Note:**: When you run `docker-compose up` and if you're on macOS, you will see a warning about an environment variable named `OS` being missing. **You can safely ignore this**.
+   > :memo: **Note:** When you run `docker-compose up` and if you're on macOS, you will see a warning about an environment variable named `OS` being missing. **You can safely ignore this**.
 
 5. After all containers are up and running, you can open your browser and access the project at: <http://localhost:3000/>
 
@@ -131,8 +131,8 @@ microservice, here.
     <summary>Sample input of updating a vehicle model</summary>
 
     {
-      "name": "Sebring",
-      "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg"
+      "name": "Pacifica",
+      "picture_url": "https://media.ed.edmunds-media.com/chrysler/pacifica/2023/oem/2023_chrysler_pacifica_passenger-minivan_hybrid-pinnacle_fq_oem_1_1600.jpg"
     }
 
 </details>
@@ -155,7 +155,7 @@ microservice, here.
 </details>
 
 <details>
-    <summary>Sample output of getting the a list of vehicle models</summary>
+    <summary>Sample output of getting a list of vehicle models</summary>
 
     {
       "models": [
@@ -198,16 +198,6 @@ microservice, here.
 </details>
 
 <details>
-    <summary>Sample input of updating a vehicle model</summary>
-
-    {
-      "name": "Sebring",
-      "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg"
-    }
-
-</details>
-
-<details>
     <summary>Sample output of creating, updating, or getting the detail of an automobile</summary>
 
     {
@@ -233,7 +223,7 @@ microservice, here.
 </details>
 
 <details>
-    <summary>Sample imput of updating an automobile</summary>
+    <summary>Sample input of updating an automobile</summary>
 
     {
       "color": "red",
@@ -309,13 +299,14 @@ microservice, here.
     <summary>Sample output of getting a list of technicians</summary>
 
     {
-      "manufacturers": [
-        {
-          "href": "/api/manufacturers/1/",
-          "id": 1,
-          "name": "Daimler-Chrysler"
-        }
-      ]
+	  "technicians": [
+		{
+		  "first_name": "Yaomi",
+		  "last_name": "Hajimi",
+		  "employee_id": "112233",
+		  "id": 1
+		},
+	  ]
     }
 
 </details>
@@ -521,10 +512,10 @@ microservice, here.
 	  "customer": [
 		{
 		  "first_name": "Cindi",
-	      "last_name": "Maybelle",
-	      "phone_number": "4150001111",
-	      "address": "3201 Emanuel Dr, Lake Wales, FL",
-          "id": 1
+	          "last_name": "Maybelle",
+	          "phone_number": "4150001111",
+	          "address": "3201 Emanuel Dr, Lake Wales, FL",
+              "id": 1
 		}
       ]
     }
@@ -553,7 +544,7 @@ microservice, here.
 
     {
 	  "customer": "Cindi Maybelle",
-	  "salespersom": "Jep Tory",
+	  "salesperson": "Jep Tory",
 	  "automobile": "1C3CC5FB2AN120174",
 	  "price": 50000
     }
@@ -592,7 +583,7 @@ microservice, here.
     <summary>Sample output of getting a list of sales</summary>
 
     {
-	  "sale": [
+	  "sales": [
         {
           "id": 1,
           "automobile": {
