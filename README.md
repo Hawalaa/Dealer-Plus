@@ -20,26 +20,26 @@ microservice, here.
 
 ## Diagram
 
-    ![Carcar project diagram](/assets/images/Carcar%20diagram.png)
+![Carcar project diagram](/assets/images/Carcar%20diagram.png)
 
 ## Installation
 
 1. Fork this repository
-2. In your terminal, clone the repository onto your computer (Replace the repository url with the url your copied from git!).
+2. In your terminal, clone the repository onto your computer (**Replace the repository url with the url your copied from git!**).
 
-    `git clone <repository url>`
+    git clone <repository url>
 
 3. Change the working directory to the project's directory in your terminal.
 
-    `cd project-beta`
+    cd project-beta
 
 4. Open the Docker Desktop application on your computer and run the following commands in your terminal:
 
-    `docker volume create beta-data`
-    `docker-compose build`
-    `docker-compose up`
+    docker volume create beta-data
+    docker-compose build
+    docker-compose up
 
-**Note**: When you run `docker-compose up` and if you're on macOS, you will see a warning about an environment variable named `OS` being missing. **You can safely ignore this**.
+   **Note**: When you run `docker-compose up` and if you're on macOS, you will see a warning about an environment variable named `OS` being missing. **You can safely ignore this**.
 
 5. After all containers are up and running, you can open your browser and access the project at: <http://localhost:3000/>
 
@@ -58,33 +58,28 @@ microservice, here.
 | Delete a specific manufacturer | DELETE  | http://localhost:8100/api/manufacturers/int:id/ |
 
 <details>
-    <summary>**Input of creating and updating a manufacturer**</summary>
+    <b>Sample input of creating and updating a manufacturer</b>
 
-    ```
     {
       "name": "Chrysler"
     }
-    ```
 
 </details>
 
 <details>
-    <summary>**Output of creating, getting, and updating a single manufacturer**</summary>
+    <b>Sample output of creating, getting, and updating a single manufacturer</b>
 
-    ```
     {
       "href": "/api/manufacturers/1/",
       "id": 1,
       "name": "Chrysler"
     }
-    ```
 
 </details>
 
 <details>
-    <summary>**Output of getting a list of manufacturer**</summary>
+    <b>Sample output of getting a list of manufacturer</b>
 
-    ```
     {
       "manufacturers": [
         {
@@ -94,7 +89,6 @@ microservice, here.
         }
       ]
     }
-    ```
 
 </details>
 
@@ -109,34 +103,29 @@ microservice, here.
 | Delete a specific vehicle model | DELETE  | http://localhost:8100/api/models/int:id/ |
 
 <details>
-    <summary>**Input of creating a vehicle model**</summary>
+    <b>Sample input of creating a vehicle model</b>
 
-    ```
     {
       "name": "Sebring",
       "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
       "manufacturer_id": 1
     }
-    ```
 
 </details>
 
 <details>
-    <summary>**Input of updating a vehicle model**</summary>
+    <b>Sample input of updating a vehicle model</b>
 
-    ```
     {
       "name": "Sebring",
       "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg"
     }
-    ```
 
 </details>
 
 <details>
-    <summary>**Output of creating, updating, or getting the detail of a vehicle model**</summary>
+    <b>Sample output of creating, updating, or getting the detail of a vehicle model</b>
 
-    ```
     {
       "href": "/api/models/1/",
       "id": 1,
@@ -148,14 +137,12 @@ microservice, here.
         "name": "Daimler-Chrysler"
       }
     }
-    ```
 
 </details>
 
 <details>
-    <summary>**Output of getting the a list of vehicle models**</summary>
+    <b>Sample output of getting the a list of vehicle models</b>
 
-    ```
     {
       "models": [
         {
@@ -171,7 +158,6 @@ microservice, here.
         }
       ]
     }
-    ```
 
 </details>
 
@@ -186,38 +172,30 @@ microservice, here.
 | Delete a specific automobile | DELETE  | http://localhost:8100/api/automobiles/str:vin/ |
 
 <details>
-    <summary>**Input of creating an automobile**</summary>
+    <b>Sample input of creating an automobile</b>
 
-    ```
     {
       "color": "red",
       "year": 2012,
       "vin": "1C3CC5FB2AN120174",
       "model_id": 1
     }
-    ```
 
 </details>
 
 <details>
-    <summary>**Input of updating a vehicle model**</summary>
+    <b>Sample input of updating a vehicle model</b>
 
-    ```
     {
       "name": "Sebring",
       "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg"
     }
-    ```
-    As noted, you query an automobile by its VIN. For example, you would use the URL
-
-    `http://localhost:8100/api/automobiles/1C3CC5FB2AN120174/`
 
 </details>
 
 <details>
-    <summary>**Output of creating, updating, or getting the detail of an automobile**</summary>
+    <b>Sample output of creating, updating, or getting the detail of an automobile</b>
 
-    ```
     {
       "href": "/api/automobiles/1C3CC5FB2AN120174/",
       "id": 1,
@@ -237,27 +215,23 @@ microservice, here.
       },
       "sold": false
     }
-    ```
 
 </details>
 
 <details>
-    <summary>**Sample imput of updating an automobile**</summary>
+    <b>Sample imput of updating an automobile</b>
 
-    ```
     {
       "color": "red",
       "year": 2012,
       "sold": true
     }
-    ```
 
 </details>
 
 <details>
-    <summary>**Sample output of getting the a list of automobiles**</summary>
+    <b>Sample output of getting the a list of automobiles</b>
 
-    ```
     {
       "autos": [
         {
@@ -281,6 +255,5 @@ microservice, here.
         }
       ]
     }
-    ```
 
 </details>
