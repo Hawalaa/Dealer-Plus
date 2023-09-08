@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
 function AppointmentsList() {
-    const [appointments, setAppointments] = useState([])
+    const [appointments, setAppointments] = useState([]);
 
     const getData = async () => {
         const response = await fetch('http://localhost:8080/api/appointments/');
@@ -46,20 +46,17 @@ function AppointmentsList() {
         }
     }
 
+
+
     const formatDate = (date_time) => {
         const newDate = new Date(date_time);
-        const year = newDate.getFullYear();
-        const month = newDate.getMonth();
-        const day = newDate.getDate();
-        const formattedDate = `${month}/${day}/${year}`;
+        const formattedDate = newDate.toLocaleDateString("en-US");
         return formattedDate;
     }
 
     const formatTime = (date_time) => {
         const newDate = new Date(date_time);
-        const hour = newDate.getHours();
-        const minute = newDate.getMinutes();
-        const formattedTime = `${hour}:${minute}`;
+        const formattedTime = newDate.toLocaleTimeString("en-US");
         return formattedTime;
     }
 

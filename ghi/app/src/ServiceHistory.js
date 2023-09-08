@@ -32,18 +32,13 @@ function ServiceHistory() {
 
     const formatDate = (date_time) => {
         const newDate = new Date(date_time);
-        const year = newDate.getFullYear();
-        const month = newDate.getMonth();
-        const day = newDate.getDate();
-        const formattedDate = `${month}/${day}/${year}`;
+        const formattedDate = newDate.toLocaleDateString("en-US");
         return formattedDate;
     }
 
     const formatTime = (date_time) => {
         const newDate = new Date(date_time);
-        const hour = newDate.getHours();
-        const minute = newDate.getMinutes();
-        const formattedTime = `${hour}:${minute}`;
+        const formattedTime = newDate.toLocaleTimeString("en-US");
         return formattedTime;
     }
 
@@ -56,11 +51,13 @@ function ServiceHistory() {
         <>
         <font size="+10" >Service History</font>
 
-            <div className="input-group mb-3">
+            <div>
                 <form className="d-flex" role="search" onSubmit={handleSubmit}>
-                    <input className="form-control me-2" aria-label="Search by VIN..." onChange={handleVinChange} value={vin} placeholder="Search by VIN..." required type="text" name="vin" id="vin" />
-                    <div className="input-group-append">
-                        <button className="btn btn-outline-secondary" type="submit">Search</button>
+                    <div className="input-group mb-3">
+                        <input className="form-control" aria-label="Search by VIN..." onChange={handleVinChange} value={vin} placeholder="Search by VIN..." required type="text" name="vin" id="vin" />
+                        <div className="input-group-append">
+                            <button className="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -95,7 +92,7 @@ function ServiceHistory() {
                 </tbody>
             </table>
             <button onClick={handleClick} type="button" className="btn btn-primary">Add an Appointment</button>
-        
+
         </>
     )
 
