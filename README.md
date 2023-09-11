@@ -23,8 +23,8 @@ create service appointment and keep track of the appointment data infomation.
 
 ## Sales Microservice
 
-Explain your models and integration with the inventory
-microservice, here.
+For the sales microservice, four models were created: AutomobileVO, Salesperson, Customer and Sale. The AutomoileVO model serve as a poller to communicate with the inventory microservice,
+keeping track of the automobile data infomation. The Salesperson model is used to create salesperson staff and provide data for the Sale model. The customer model is used to create customer in the database and provide data for the Sale model. And the Sale model is used to create sale record and keep track of the relevant information about each sale, including automobile VIN number, the person who sell the car, the customer who bought the car and the price of each sale.
 
 ## Architecture Diagram of the Application
 
