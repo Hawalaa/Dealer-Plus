@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 function SalespersonHistoryList() {
     const [sales, setSales] = useState([]);
     const [selectedSalesperson, setSelectedSalesperson] = useState('');
+    const [salespeople, setSalespeople] = useState([]); // Declare the state variable
+
 
     const getData = async () => {
         const response = await fetch('http://localhost:8090/api/sales/');
@@ -11,6 +13,8 @@ function SalespersonHistoryList() {
             const data = await response.json();
             console.log(data)
             setSales(data.sales)
+            const uniqueSalespeople = [...new Set(data.sales.map(sale => sale.salesperson_name))];
+            setSalespeople(uniqueSalespeople);
         }
     };
 
@@ -28,9 +32,9 @@ function SalespersonHistoryList() {
         <h1>Salesperson History</h1>
         <select value={selectedSalesperson} onChange={(e) => setSelectedSalesperson(e.target.value)}>
             <option value="">Select a Salesperson</option>
-            {sales.map((sale) => (
-                <option key={sale.pk} value={sale.salesperson_name}>
-                    {sale.salesperson_name}
+            {salespeople.map((salespersonName, index) => (
+                <option key={index} value={salespersonName}>
+                    {salespersonName}
                 </option>
             ))}
         </select>

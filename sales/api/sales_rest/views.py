@@ -148,6 +148,7 @@ def sale_list(request):
             automobile = AutomobileVO.objects.get(vin=automobile_id)
             print("automobile: ", automobile)
             saved_object["automobile"] = automobile
+            print("saved_object: ", saved_object)
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Automobile does not exist"},
