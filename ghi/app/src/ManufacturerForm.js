@@ -59,7 +59,7 @@ function ManufacturerForm() {
                             <form onSubmit={handleSubmit} id="create-manufacturer-form">
                                 <div className="form-group mb-3">
                                     <label htmlFor="manufacturer"></label>
-                                    <input onChange={handleInputChange} placeholder="Manufacturer name..." required type="text" id="manufacturer" name="manufacturer" className="form-control" />
+                                    <input onChange={handleInputChange} placeholder="Manufacturer name..." required type="text" id="manufacturer" name="name" className="form-control" />
                                 </div>
                                 <button className="btn btn-primary">Create</button>
                             </form>
