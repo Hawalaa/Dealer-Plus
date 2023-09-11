@@ -30,12 +30,14 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
+    'service_rest.apps.ServiceRestConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -45,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ALLOWED_HOSTS = [
@@ -58,6 +61,7 @@ CSRF_TRUSTED_ORIGINS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
 CORS_ALLOW_CREDENTIALS = True
 
 DJWTO_MODE = "TWO-COOKIES"
