@@ -59,58 +59,36 @@ function CustomerForm() {
         });
         };
 
-    return (
-    <div>
-        <h2>Add a Customer</h2>
-        <form onSubmit={handleSubmit}>
-        <div>
-            <label htmlFor="first_name">First Name:</label>
-            <input
-            type="text"
-            id="first_name"
-            name="first_name"
-            value={formData.first_name}
-            onChange={handleInputChange}
-            required
-            />
-        </div>
-        <div>
-            <label htmlFor="last_name">Last Name:</label>
-            <input
-            type="text"
-            id="last_name"
-            name="last_name"
-            value={formData.last_name}
-            onChange={handleInputChange}
-            required
-            />
-        </div>
-        <div>
-            <label htmlFor="address">Address:</label>
-            <input
-            type="text"
-            id="address"
-            name="address"
-            value={formData.address}
-            onChange={handleInputChange}
-            required
-            />
-        </div>
-        <div>
-            <label htmlFor="phone_number">Phone Number:</label>
-            <input
-            type="text"
-            id="phone_number"
-            name="phone_number"
-            value={formData.phone_number}
-            onChange={handleInputChange}
-            required
-            />
-        </div>
-        <button type="submit">Create</button>
-        </form>
-    </div>
-    );
+        return (
+            <>
+                <div className="row">
+                    <div className="offset-3 col-6">
+                        <div className="shadow p-4 mt-4">
+                            <h1>Add a customer</h1>
+                            <form onSubmit={handleSubmit} id="create-customer-form">
+                                <div className="form-group mb-3">
+                                    <label htmlFor="first_name">First Name: </label>
+                                    <input onChange={handleInputChange} placeholder="First name..." required type="text" id="first_name" name="first_name" className="form-control" />
+                                </div>
+                                <div className="form-group mb-3">
+                                    <label htmlFor="last_name">Last Name: </label>
+                                    <input onChange={handleInputChange} placeholder="Last name..." required type="text" id="last_name" name="last_name" className="form-control" />
+                                </div>
+                                <div className="form-group mb-3">
+                                    <label htmlFor="address">Address: </label>
+                                    <input onChange={handleInputChange} placeholder="Address..." required type="text" id="address" name="address" className="form-control" />
+                                </div>
+                                <div className="form-group mb-3">
+                                    <label htmlFor="phone_number">Phone number: </label>
+                                    <input onChange={handleInputChange} placeholder="Phone number..." required type="text" id="phone_number" name="phone_number" className="form-control" />
+                                </div>
+                                <button className="btn btn-primary">Create</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </>
+        )
 }
 
 export default CustomerForm;

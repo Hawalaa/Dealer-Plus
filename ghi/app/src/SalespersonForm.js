@@ -56,47 +56,32 @@ function SalespersonForm() {
         });
         };
 
-    return (
-    <div>
-        <h2>Add a Salesperson</h2>
-        <form onSubmit={handleSubmit}>
-        <div>
-            <label htmlFor="first_name">First Name:</label>
-            <input
-            type="text"
-            id="first_name"
-            name="first_name"
-            value={formData.first_name}
-            onChange={handleInputChange}
-            required
-            />
-        </div>
-        <div>
-            <label htmlFor="last_name">Last Name:</label>
-            <input
-            type="text"
-            id="last_name"
-            name="last_name"
-            value={formData.last_name}
-            onChange={handleInputChange}
-            required
-            />
-        </div>
-        <div>
-            <label htmlFor="employee_id">Employee ID:</label>
-            <input
-            type="text"
-            id="employee_id"
-            name="employee_id"
-            value={formData.employee_id}
-            onChange={handleInputChange}
-            required
-            />
-        </div>
-        <button type="submit">Create</button>
-        </form>
-    </div>
-    );
+        return (
+            <>
+                <div className="row">
+                    <div className="offset-3 col-6">
+                        <div className="shadow p-4 mt-4">
+                            <h1>Add a salesperson</h1>
+                            <form onSubmit={handleSubmit} id="create-salesperson-form">
+                                <div className="form-group mb-3">
+                                    <label htmlFor="first_name">First Name: </label>
+                                    <input onChange={handleInputChange} placeholder="First name..." required type="text" id="first_name" name="first_name" className="form-control" />
+                                </div>
+                                <div className="form-group mb-3">
+                                    <label htmlFor="last_name">Last Name: </label>
+                                    <input onChange={handleInputChange} placeholder="Last name..." required type="text" id="last_name" name="last_name" className="form-control" />
+                                </div>
+                                <div className="form-group mb-3">
+                                    <label htmlFor="employee_id">Employee ID: </label>
+                                    <input onChange={handleInputChange} placeholder="Employee id..." required type="text" id="employee_id" name="employee_id" className="form-control" />
+                                </div>
+                                <button className="btn btn-primary">Create</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </>
+        )
 }
 
 export default SalespersonForm;

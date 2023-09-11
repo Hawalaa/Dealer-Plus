@@ -50,25 +50,24 @@ function ManufacturerForm() {
         });
         };
 
-    return (
-    <div>
-        <h2>Add a Manufacturer</h2>
-        <form onSubmit={handleSubmit}>
-        <div>
-            <label htmlFor="name">Name:</label>
-            <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            required
-            />
-        </div>
-        <button type="submit">Create</button>
-        </form>
-    </div>
-    );
+        return (
+            <>
+                <div className="row">
+                    <div className="offset-3 col-6">
+                        <div className="shadow p-4 mt-4">
+                            <h1>Create a manufacturer</h1>
+                            <form onSubmit={handleSubmit} id="create-manufacturer-form">
+                                <div className="form-group mb-3">
+                                    <label htmlFor="manufacturer"></label>
+                                    <input onChange={handleInputChange} placeholder="Manufacturer name..." required type="text" id="manufacturer" name="manufacturer" className="form-control" />
+                                </div>
+                                <button className="btn btn-primary">Create</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </>
+        )
 }
 
 export default ManufacturerForm;

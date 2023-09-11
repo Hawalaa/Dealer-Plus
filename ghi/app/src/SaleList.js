@@ -8,6 +8,7 @@ function SaleList() {
 
         if (response.ok) {
             const data = await response.json();
+            console.log(data)
             setSales(data.sales)
         }
     };
@@ -31,11 +32,11 @@ function SaleList() {
           </thead>
           <tbody>
             {sales.map((sale) => (
-              <tr key={sale.id}>
-                <td>{sale.salesperson.employee_id}</td>
-                <td>{`${sale.salesperson.first_name} ${sale.salesperson.last_name}`}</td>
-                <td>{`${sale.customer.first_name} ${sale.customer.last_name}`}</td>
-                <td>{sale.automobile.vin}</td>
+              <tr key={sale.pk}>
+                <td>{sale.salesperson_e_id}</td>
+                <td>{sale.salesperson_name}</td>
+                <td>{sale.customer_name}</td>
+                <td>{sale.vin}</td>
                 <td>{sale.price}</td>
               </tr>
             ))}

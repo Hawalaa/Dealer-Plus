@@ -12,16 +12,19 @@ function SalesForm() {
 
     const handleAutomobileChange = (event) => {
         const value = event.target.value;
+        console.log("auto: ", event.target.value)
         setAutomobile(value);
     }
 
     const handleSalespersonChange = (event) => {
         const value = event.target.value;
+        console.log("sales person: ", event.target.value)
         setSalesperson(value);
     }
 
     const handleCustomerChange = (event) => {
         const value = event.target.value;
+        console.log("customer: ", event.target.value)
         setCustomer(value);
     }
 
@@ -34,11 +37,12 @@ function SalesForm() {
         event.preventDefault();
 
         const data = {};
+        console.log("a: ", automobile)
         data.automobile = automobile;
         data.salesperson = salesperson;
         data.customer = customer;
         data.price = price;
-        console.log(data);
+        console.log("before submission: ", data);
 
         const salesUrl = 'http://localhost:8090/api/sales/';
         const fetchConfig = {
@@ -61,7 +65,7 @@ function SalesForm() {
     }
 
     const fetchData = async () => {
-        const url1 = 'http://localhost:8090/api/unsold-automobiles/';
+        const url1 = 'http://localhost:8100/api/automobiles/';
         const url2 = 'http://localhost:8090/api/salespeople/';
         const url3 = 'http://localhost:8090/api/customers/';
 
@@ -71,20 +75,21 @@ function SalesForm() {
 
         if (response1.ok) {
             const data1 = await response1.json();
-            console.log('Automobiles:', data1);
-            setAutomobile(data1.automobile)
+            console.log('automobiles:', data1.autos);
+            const unsoldAutos = data1.autos.filter(auto => !auto.sold);
+            setAutomobiles(unsoldAutos)
         }
 
         if (response2.ok) {
             const data2 = await response2.json();
-            console.log('saleserpson:', data2);
-            setSalesperson(data2.salesperson)
+            console.log('salespeople:', data2.salespeople);
+            setSalespeople(data2.salespeople)
         }
 
         if (response3.ok) {
             const data3 = await response3.json();
-            console.log('customers:', data3);
-            setCustomer(data3.customer)
+            console.log('customers:', data3.customers);
+            setCustomers(data3.customers)
         }
     }
 
@@ -100,13 +105,13 @@ function SalesForm() {
                         <h1>Record a sale</h1>
                         <form onSubmit={handleSubmit} id="create-sales-form">
                             <div className="form-group mb-3">
-                                <label htmlFor="automobile" className="form-label">Automobile Vin</label>
-                                <select onChange={handleAutomobileChange} required id="automobile" name="automobile" className="form-select">
+                                <label htmlFor="auto" className="form-label">Automobile Vin</label>
+                                <select onChange={handleAutomobileChange} required id="auto" name="auto" className="form-select">
                                     <option value="">Choose a automobile VIN...</option>
-                                    {automobiles.map(automobile => {
+                                    {automobiles.map(auto => {
                                         return (
-                                            <option key={automobile.id} value={automobile.id}>
-                                                automobile.vin
+                                            <option key={auto.id} value={auto.vin}>
+                                                {auto.vin}
                                             </option>
                                         );
                                     })}
@@ -140,7 +145,7 @@ function SalesForm() {
                             </div>
                             <div className="form-group mb-3">
                                 <label htmlFor="price">Price</label>
-                                <input onChange={handlePriceChange} placeholder="price" required type="text" id="price" name="price" className="form-control" />
+                                <input onChange={handlePriceChange} placeholder="0" required type="number" id="price" name="price" className="form-control" />
                             </div>
                             <button className="btn btn-primary">Create</button>
                         </form>
