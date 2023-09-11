@@ -10,7 +10,8 @@ import ModelForm from './ModelForm';
 import AutomobilesList from './AutomobilesList';
 import AutomobileForm from './AutomobileForm';
 
-function App() {
+
+function App(props) {
   return (
     <BrowserRouter>
       <Nav />
