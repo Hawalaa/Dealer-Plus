@@ -7,7 +7,9 @@ function ManufacturerForm() {
     });
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
+        // const { name, value } = e.target;
+        const name = e.target.name;
+        const value = e.target.value;
         setFormData({
           ...formData,
           [name]: value,
@@ -23,7 +25,7 @@ function ManufacturerForm() {
 
         try {
             const response = await fetch('http://localhost:8100/api/manufacturers/', {
-                method: 'POST',
+                method: 'post',
                 headers: {
                 'Content-Type': 'application/json',
                 },
