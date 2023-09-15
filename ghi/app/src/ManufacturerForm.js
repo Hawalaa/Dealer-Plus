@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+
 function ManufacturerForm() {
     const [formData, setFormData] = useState({
         name: '',
@@ -21,7 +22,6 @@ function ManufacturerForm() {
         };
 
         try {
-            console.log(JSON.stringify(data))
             const response = await fetch('http://localhost:8100/api/manufacturers/', {
                 method: 'POST',
                 headers: {

@@ -12,19 +12,16 @@ function SalesForm() {
 
     const handleAutomobileChange = (event) => {
         const value = event.target.value;
-        console.log("auto: ", event.target.value)
         setAutomobile(value);
     }
 
     const handleSalespersonChange = (event) => {
         const value = event.target.value;
-        console.log("sales person: ", event.target.value)
         setSalesperson(value);
     }
 
     const handleCustomerChange = (event) => {
         const value = event.target.value;
-        console.log("customer: ", event.target.value)
         setCustomer(value);
     }
 
@@ -42,7 +39,6 @@ function SalesForm() {
         data.salesperson = salesperson;
         data.customer = customer;
         data.price = price;
-        console.log("before submission: ", data);
 
         const salesUrl = 'http://localhost:8090/api/sales/';
         const fetchConfig = {
@@ -56,7 +52,6 @@ function SalesForm() {
         const response = await fetch(salesUrl, fetchConfig);
         if (response.ok) {
             const newSale = await response.json();
-            console.log(newSale);
             setAutomobile('');
             setSalesperson('');
             setCustomer('');
@@ -75,20 +70,17 @@ function SalesForm() {
 
         if (response1.ok) {
             const data1 = await response1.json();
-            console.log('automobiles:', data1.autos);
             const unsoldAutos = data1.autos.filter(auto => !auto.sold);
             setAutomobiles(unsoldAutos)
         }
 
         if (response2.ok) {
             const data2 = await response2.json();
-            console.log('salespeople:', data2.salespeople);
             setSalespeople(data2.salespeople)
         }
 
         if (response3.ok) {
             const data3 = await response3.json();
-            console.log('customers:', data3.customers);
             setCustomers(data3.customers)
         }
     }

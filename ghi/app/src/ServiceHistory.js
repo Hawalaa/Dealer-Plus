@@ -50,7 +50,6 @@ function ServiceHistory() {
     return (
         <>
         <font size="+10" >Service History</font>
-
             <div>
                 <form className="d-flex" role="search" onSubmit={handleSubmit}>
                     <div className="input-group mb-3">

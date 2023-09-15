@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 function TechniciansList() {
     const [technicians, setTechnicians] = useState([])
+    const [sortBy, setSortBy] = useState('');
 
     const getData = async () => {
         const response = await fetch('http://localhost:8080/api/technicians/');
@@ -12,6 +13,19 @@ function TechniciansList() {
             setTechnicians(data.technicians)
         }
     }
+
+    function sortTechnicians() {
+        const sortedTechnicians = [...technicians];
+        sortedTechnicians.sort((a, b) => {
+          if (sortBy === "first name") {
+            return a.first_name.localeCompare(b.first_name);
+          } else if (sortBy === "last name") {
+            return a.last_name.localeCompare(b.last_name);
+          }
+          return 0;
+        });
+        setTechnicians(sortedTechnicians)
+      }
 
     useEffect(() =>{
         getData()
@@ -39,6 +53,17 @@ function TechniciansList() {
     return (
         <>
         <font size="+10" >Technicians</font>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <div style={{ marginRight: "10px" }}>
+            <label>Sort By:</label>
+            <select onChange={(e) => setSortBy(e.target.value)}>
+              <option value="">None</option>
+              <option value="first name">First Name</option>
+              <option value="last name">Last Name</option>
+            </select>
+          </div>
+          <button onClick={sortTechnicians}>Sort</button>
+        </div>
         <table className="table table-striped">
             <thead>
                 <tr>

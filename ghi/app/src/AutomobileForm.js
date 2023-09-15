@@ -37,7 +37,6 @@ function AutomobileForm() {
         data.year = year;
         data.vin = vin;
         data.model_id = model;
-        console.log(data);
 
         const automobileUrl = 'http://localhost:8100/api/automobiles/';
         const fetchConfig = {
@@ -51,7 +50,6 @@ function AutomobileForm() {
         const response = await fetch(automobileUrl, fetchConfig);
         if (response.ok) {
             const newAutomobile = await response.json();
-            console.log(newAutomobile);
             setColor('');
             setYear('');
             setVin('');

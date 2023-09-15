@@ -11,7 +11,6 @@ function SalespersonHistoryList() {
 
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
             setSales(data.sales)
             const uniqueSalespeople = [...new Set(data.sales.map(sale => sale.salesperson_name))];
             setSalespeople(uniqueSalespeople);
@@ -50,7 +49,7 @@ function SalespersonHistoryList() {
           </thead>
           <tbody>
             {filteredSales.map((sale) => (
-              <tr key={sale.pk}>
+              <tr key={sale.vin}>
                 <td>{sale.salesperson_name}</td>
                 <td>{sale.customer_name}</td>
                 <td>{sale.vin}</td>

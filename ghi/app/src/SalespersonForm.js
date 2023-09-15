@@ -25,7 +25,6 @@ function SalespersonForm() {
         };
 
         try {
-            console.log(JSON.stringify(data))
             const response = await fetch('http://localhost:8090/api/salespeople/', {
                 method: 'POST',
                 headers: {

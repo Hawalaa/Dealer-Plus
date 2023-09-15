@@ -49,7 +49,6 @@ function SaleForm() {
         };
 
         try {
-            console.log(JSON.stringify(data))
             const response = await fetch('http://localhost:8090/api/sales/', {
                 method: 'POST',
                 headers: {

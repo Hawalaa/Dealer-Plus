@@ -45,7 +45,6 @@ def salesperson_list(request):
         )
     else:
         content = json.loads(request.body)
-        print("post salesperson content: ", content)
         try:
             salesperson = Salesperson.objects.create(**content)
             return JsonResponse(
@@ -129,7 +128,6 @@ def sale_list(request):
                 "price": price
             }
             sales_objects.append(data)
-        print("all sales objects: ", sales_objects)
 
         return JsonResponse(
             {"sales": sales_objects},
@@ -140,15 +138,11 @@ def sale_list(request):
         queryset = AutomobileVO.objects.all()
         saved_object = {}
         # Loop through the QuerySet and print the vin field
-        for item in queryset:
-            print(item.vin)
 
         try:
             automobile_id = content["automobile"]
             automobile = AutomobileVO.objects.get(vin=automobile_id)
-            print("automobile: ", automobile)
             saved_object["automobile"] = automobile
-            print("saved_object: ", saved_object)
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Automobile does not exist"},
@@ -158,7 +152,6 @@ def sale_list(request):
         try:
             salesperson_id = content["salesperson"]
             salesperson = Salesperson.objects.get(id=salesperson_id)
-            print("salesperson: ", salesperson)
             saved_object["salesperson"] = salesperson
         except Salesperson.DoesNotExist:
             return JsonResponse(
@@ -169,7 +162,6 @@ def sale_list(request):
         try:
             customer_id = content["customer"]
             customer = Customer.objects.get(id=customer_id)
-            print("customer :", customer)
             saved_object["customer"] = customer
         except Customer.DoesNotExist:
             return JsonResponse(
